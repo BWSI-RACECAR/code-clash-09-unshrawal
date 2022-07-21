@@ -28,26 +28,14 @@ class Solution:
         # return: int
         letters = str[0:3]
         nums = str[3:]
-        c1 = 0
-        max = 26
-        for i in range(0, len(letters)):
-            if letters[i]==".":
-                c1+=1
-            else:
-                max -= 1
-        combos = 1
-        if max > 23:
-            combos = c1 * max
-        max = 9
-        c1 = 0
-        for i in range(0, len(nums)):
-            if nums[i]==".":
-                c1+=1
-            else:
-                max -= 1
-        if max > 5:
-            combos += max * c1
-        return combos
+        cnt1 = letters.count(".")
+        cnt2 = nums.count(".")
+        combo = 1
+        for i in range(24, 24 + cnt1):
+            combo *= i
+        for i in range(7, 7 + cnt2):
+            combo *= i
+        return combo
         # TODO: Write code below to return an int with the solution to the prompt
         pass
 
